@@ -1,0 +1,50 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "--inspect",
+        "${workspaceFolder}/node_modules/.bin/next",
+        "dev"
+      ],
+      "env": { "NODE_OPTIONS": "--inspect" },
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      },
+      "outputCapture": "std",
+      "cwd": "${workspaceFolder}/apps/web"
+    },
+    {
+      "name": "NestJS: debug",
+      "type": "node",
+      "request": "launch",
+      "args": ["--entryFile=main"],
+      "runtimeArgs": ["--nolazy", "-r", "tsconfig-paths/register"],
+      "sourceMaps": true,
+      "envFile": "${workspaceFolder}/apps/api/.env",
+      "cwd": "${workspaceFolder}/apps/api",
+      "runtimeExecutable": "node_modules/.bin/nest",
+      "outputCapture": "std"
+    },
+    {
+      "name": "NestJS: attach",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "sourceMaps": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack",
+      "configurations": ["Next.js: debug server", "NestJS: debug"]
+    }
+  ]
+}

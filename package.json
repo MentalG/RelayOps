@@ -1,9 +1,18 @@
 {
   "name": "relayops",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev:web": "bun --cwd apps/web dev"
+    "dev:web": "bun --cwd apps/web dev",
+    "dev:api": "bun --cwd apps/api start:dev",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs",
+    "db:logs": "docker compose logs postgres",
+    "db:reset": "docker compose down -v && docker compose up -d"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",
