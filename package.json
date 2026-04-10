@@ -16,7 +16,10 @@
     "db:generate": "bun --cwd packages/db db:generate",
     "db:migrate": "bun --cwd packages/db db:migrate",
     "db:seed": "bun --cwd packages/db db:seed",
-    "db:studio": "bun --cwd packages/db db:studio"
+    "db:studio": "bun --cwd packages/db db:studio",
+    "lint": "bun --cwd apps/web lint && bun --cwd apps/api lint",
+    "lint:fix": "bun --cwd apps/web lint --fix && bun --cwd apps/api lint:fix",
+    "typecheck": "bun --cwd apps/web typecheck && bun --cwd apps/api typecheck"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.2",
