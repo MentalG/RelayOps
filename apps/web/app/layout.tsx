@@ -1,10 +1,17 @@
-import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { cn } from "@/lib/utils"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/app-sidebar"
+import "./globals.css"
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
+export const metadata: Metadata = {
+  title: "RelayOps",
+  description: "Operations management platform",
+}
 
-// app/layout.tsx
 export default function RootLayout({
   children,
 }: {
@@ -12,7 +19,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cn("font-sans", inter.variable)}>
-      <body>{children}</body>
+      <body>
+        <SidebarProvider>
+          <AppSidebar />
+          <main className="flex flex-1 flex-col min-h-svh">
+            <header className="flex h-12 items-center border-b px-4">
+              <SidebarTrigger />
+            </header>
+            <div className="flex-1 p-6">{children}</div>
+          </main>
+        </SidebarProvider>
+      </body>
     </html>
   )
 }
