@@ -1,10 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { Request } from 'express';
 import { JwtPayload } from '../auth.service.js';
 
-function cookieExtractor(req: Request): string | null {
+interface CookieRequest {
+  cookies?: Record<string, string | undefined>;
+}
+
+function cookieExtractor(req: CookieRequest): string | null {
   return req?.cookies?.['access_token'] ?? null;
 }
 
