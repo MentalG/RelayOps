@@ -1,6 +1,11 @@
 {
   "name": "@relayops/db",
   "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
   "scripts": {
     "prisma": "bunx --bun prisma",
     "db:generate": "bunx --bun prisma generate",
@@ -9,11 +14,13 @@
     "db:seed": "bunx --bun prisma db seed"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "prisma": "^7.7.0"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "^7.7.0",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.4.1",
     "pg": "^8.20.0"
   }
