@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@relayops/contracts": ["../../packages/contracts/src/index.ts"]
     }
   },
   "include": [

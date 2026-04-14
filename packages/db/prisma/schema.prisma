@@ -18,14 +18,31 @@ enum Role {
   OPERATOR
 }
 
+enum RequestStatus {
+  NEW
+  IN_REVIEW
+  APPROVED
+  REJECTED
+  CONVERTED
+}
+
+enum JobStatus {
+  PLANNED
+  SCHEDULED
+  IN_PROGRESS
+  BLOCKED
+  DONE
+}
+
 model User {
-  id           String      @id @default(cuid())
-  email        String      @unique
-  passwordHash String
-  role         Role
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  auditLogs    AuditLog[]
+  id              String           @id @default(cuid())
+  email           String           @unique
+  passwordHash    String
+  role            Role
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  auditLogs       AuditLog[]
+  jobStatusEvents JobStatusEvent[] @relation("JobStatusEventChangedBy")
 }
 
 model AuditLog {
@@ -38,4 +55,94 @@ model AuditLog {
   user User? @relation(fields: [userId], references: [id])
 
   @@map("audit_logs")
+}
+
+model Organization {
+  id              String           @id @default(cuid())
+  name            String
+  industry        String?
+  website         String?
+  phone           String?
+  notes           String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  contacts        Contact[]
+  serviceRequests ServiceRequest[]
+  jobs            Job[]
+
+  @@map("organizations")
+}
+
+model Contact {
+  id              String           @id @default(cuid())
+  organizationId  String
+  firstName       String
+  lastName        String
+  email           String?
+  phone           String?
+  title           String?
+  notes           String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  organization    Organization     @relation(fields: [organizationId], references: [id])
+  serviceRequests ServiceRequest[]
+  jobs            Job[]
+
+  @@index([organizationId])
+  @@map("contacts")
+}
+
+model ServiceRequest {
+  id             String         @id @default(cuid())
+  organizationId String
+  contactId      String?
+  title          String
+  description    String
+  status         RequestStatus  @default(NEW)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  contact        Contact?       @relation(fields: [contactId], references: [id])
+  job            Job?
+
+  @@index([organizationId])
+  @@index([contactId])
+  @@index([status])
+  @@map("service_requests")
+}
+
+model Job {
+  id             String           @id @default(cuid())
+  organizationId String
+  contactId      String?
+  requestId      String?          @unique
+  title          String
+  description    String
+  status         JobStatus        @default(PLANNED)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  organization   Organization     @relation(fields: [organizationId], references: [id])
+  contact        Contact?         @relation(fields: [contactId], references: [id])
+  request        ServiceRequest?  @relation(fields: [requestId], references: [id])
+  statusEvents   JobStatusEvent[]
+
+  @@index([organizationId])
+  @@index([contactId])
+  @@index([status])
+  @@map("jobs")
+}
+
+model JobStatusEvent {
+  id          String     @id @default(cuid())
+  jobId        String
+  fromStatus   JobStatus?
+  toStatus     JobStatus
+  changedById  String
+  changedAt    DateTime   @default(now())
+  job          Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  changedBy    User       @relation("JobStatusEventChangedBy", fields: [changedById], references: [id])
+
+  @@index([jobId])
+  @@index([changedById])
+  @@map("job_status_events")
 }

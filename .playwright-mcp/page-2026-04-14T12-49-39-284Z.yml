@@ -1,0 +1,170 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e7]: RelayOps
+      - generic [ref=e9]:
+        - generic [ref=e10]: Navigation
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - link "Dashboard" [ref=e14] [cursor=pointer]:
+              - /url: /dashboard
+              - img [ref=e15]
+              - generic [ref=e20]: Dashboard
+          - listitem [ref=e21]:
+            - link "Requests" [ref=e22] [cursor=pointer]:
+              - /url: /requests
+              - img [ref=e23]
+              - generic [ref=e26]: Requests
+          - listitem [ref=e27]:
+            - link "Jobs" [ref=e28] [cursor=pointer]:
+              - /url: /jobs
+              - img [ref=e29]
+              - generic [ref=e32]: Jobs
+          - listitem [ref=e33]:
+            - link "Schedule" [ref=e34] [cursor=pointer]:
+              - /url: /schedule
+              - img [ref=e35]
+              - generic [ref=e37]: Schedule
+          - listitem [ref=e38]:
+            - link "Invoices" [ref=e39] [cursor=pointer]:
+              - /url: /invoices
+              - img [ref=e40]
+              - generic [ref=e43]: Invoices
+          - listitem [ref=e44]:
+            - link "Activity" [ref=e45] [cursor=pointer]:
+              - /url: /activity
+              - img [ref=e46]
+              - generic [ref=e49]: Activity
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: manager@relayops.local
+          - generic [ref=e53]: MANAGER
+        - list [ref=e54]:
+          - listitem [ref=e55]:
+            - button "Sign out" [ref=e56]:
+              - img [ref=e57]
+              - generic [ref=e60]: Sign out
+    - main [ref=e61]:
+      - button "Toggle Sidebar" [ref=e63]:
+        - img
+        - generic [ref=e64]: Toggle Sidebar
+      - generic [ref=e154]:
+        - generic [ref=e155]:
+          - heading "Requests" [level=1] [ref=e156]
+          - paragraph [ref=e157]: Review inbound service requests, narrow the queue, and open the requests that are ready to convert into delivery work.
+        - generic [ref=e158]:
+          - generic [ref=e159]:
+            - generic [ref=e160]: Search
+            - textbox "Search" [ref=e161]:
+              - /placeholder: Search titles, descriptions, organizations, or contacts
+          - generic [ref=e162]:
+            - generic [ref=e163]: Status
+            - combobox "Status" [ref=e164]:
+              - option "All statuses" [selected]
+              - option "New"
+              - option "In Review"
+              - option "Approved"
+              - option "Rejected"
+              - option "Converted"
+          - generic [ref=e165]:
+            - generic [ref=e166]: Sort By
+            - combobox "Sort By" [ref=e167]:
+              - option "Last updated" [selected]
+              - option "Created date"
+              - option "Title"
+              - option "Status"
+          - generic [ref=e168]:
+            - generic [ref=e169]: Direction
+            - combobox "Direction" [ref=e170]:
+              - option "Descending" [selected]
+              - option "Ascending"
+          - generic [ref=e171]:
+            - button "Apply" [ref=e172]
+            - button "Reset" [ref=e173]
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - generic [ref=e176]: Request Queue
+            - generic [ref=e177]: Showing 1-4 of 4 requests
+          - generic [ref=e178]:
+            - table [ref=e180]:
+              - rowgroup [ref=e181]:
+                - row "Request Organization Contact Status Updated Action" [ref=e182]:
+                  - columnheader "Request" [ref=e183]
+                  - columnheader "Organization" [ref=e184]
+                  - columnheader "Contact" [ref=e185]
+                  - columnheader "Status" [ref=e186]
+                  - columnheader "Updated" [ref=e187]
+                  - columnheader "Action" [ref=e188]
+              - rowgroup [ref=e189]:
+                - row "Quarterly HVAC inspection Run scheduled maintenance across the Riverfront portfolio and flag units that need follow-up work before summer occupancy increases. Northwind Facilities Dana Kim dana.kim@northwind.example.com Converted Apr 14, 2026 Open" [ref=e190]:
+                  - cell "Quarterly HVAC inspection Run scheduled maintenance across the Riverfront portfolio and flag units that need follow-up work before summer occupancy increases." [ref=e191]:
+                    - generic [ref=e192]:
+                      - generic [ref=e193]: Quarterly HVAC inspection
+                      - generic [ref=e194]: Run scheduled maintenance across the Riverfront portfolio and flag units that need follow-up work before summer occupancy increases.
+                  - cell "Northwind Facilities" [ref=e195]
+                  - cell "Dana Kim dana.kim@northwind.example.com" [ref=e196]:
+                    - generic [ref=e197]:
+                      - generic [ref=e198]: Dana Kim
+                      - generic [ref=e199]: dana.kim@northwind.example.com
+                  - cell "Converted" [ref=e200]:
+                    - generic [ref=e201]: Converted
+                  - cell "Apr 14, 2026" [ref=e202]
+                  - cell "Open" [ref=e203]:
+                    - link "Open" [ref=e204] [cursor=pointer]:
+                      - /url: /requests/cmnykx6r20009e38zi7vjkdu9
+                - row "Warehouse lighting retrofit Replace failing fixtures in the west warehouse and rebalance circuit loads before the next inventory count. Summit Retail Group Leo Martin leo.martin@summit.example.com Converted Apr 14, 2026 Open" [ref=e205]:
+                  - cell "Warehouse lighting retrofit Replace failing fixtures in the west warehouse and rebalance circuit loads before the next inventory count." [ref=e206]:
+                    - generic [ref=e207]:
+                      - generic [ref=e208]: Warehouse lighting retrofit
+                      - generic [ref=e209]: Replace failing fixtures in the west warehouse and rebalance circuit loads before the next inventory count.
+                  - cell "Summit Retail Group" [ref=e210]
+                  - cell "Leo Martin leo.martin@summit.example.com" [ref=e211]:
+                    - generic [ref=e212]:
+                      - generic [ref=e213]: Leo Martin
+                      - generic [ref=e214]: leo.martin@summit.example.com
+                  - cell "Converted" [ref=e215]:
+                    - generic [ref=e216]: Converted
+                  - cell "Apr 14, 2026" [ref=e217]
+                  - cell "Open" [ref=e218]:
+                    - link "Open" [ref=e219] [cursor=pointer]:
+                      - /url: /requests/cmnykx6r4000be38zqxevjqwx
+                - row "POS terminal rollout support Coordinate technician coverage for the first wave of payment terminal replacements across ten stores. Summit Retail Group Priya Shah priya.shah@summit.example.com New Apr 14, 2026 Open" [ref=e220]:
+                  - cell "POS terminal rollout support Coordinate technician coverage for the first wave of payment terminal replacements across ten stores." [ref=e221]:
+                    - generic [ref=e222]:
+                      - generic [ref=e223]: POS terminal rollout support
+                      - generic [ref=e224]: Coordinate technician coverage for the first wave of payment terminal replacements across ten stores.
+                  - cell "Summit Retail Group" [ref=e225]
+                  - cell "Priya Shah priya.shah@summit.example.com" [ref=e226]:
+                    - generic [ref=e227]:
+                      - generic [ref=e228]: Priya Shah
+                      - generic [ref=e229]: priya.shah@summit.example.com
+                  - cell "New" [ref=e230]:
+                    - generic [ref=e231]: New
+                  - cell "Apr 14, 2026" [ref=e232]
+                  - cell "Open" [ref=e233]:
+                    - link "Open" [ref=e234] [cursor=pointer]:
+                      - /url: /requests/cmnykx6r3000ae38z9or5vw0t
+                - row "Conveyor line belt replacement Line 3 is showing fraying and slippage during the second shift. Need inspection and replacement plan before the next production run. Acme Manufacturing Sarah Lopez sarah.lopez@acme.example.com In Review Apr 14, 2026 Open" [ref=e235]:
+                  - cell "Conveyor line belt replacement Line 3 is showing fraying and slippage during the second shift. Need inspection and replacement plan before the next production run." [ref=e236]:
+                    - generic [ref=e237]:
+                      - generic [ref=e238]: Conveyor line belt replacement
+                      - generic [ref=e239]: Line 3 is showing fraying and slippage during the second shift. Need inspection and replacement plan before the next production run.
+                  - cell "Acme Manufacturing" [ref=e240]
+                  - cell "Sarah Lopez sarah.lopez@acme.example.com" [ref=e241]:
+                    - generic [ref=e242]:
+                      - generic [ref=e243]: Sarah Lopez
+                      - generic [ref=e244]: sarah.lopez@acme.example.com
+                  - cell "In Review" [ref=e245]:
+                    - generic [ref=e246]: In Review
+                  - cell "Apr 14, 2026" [ref=e247]
+                  - cell "Open" [ref=e248]:
+                    - link "Open" [ref=e249] [cursor=pointer]:
+                      - /url: /requests/cmnykx6qz0008e38zweffv9qs
+            - generic [ref=e250]:
+              - paragraph [ref=e251]: Page 1 of 1
+              - generic [ref=e252]:
+                - button "Previous" [disabled]
+                - button "Next" [disabled]
+  - button "Open Next.js Dev Tools" [ref=e122] [cursor=pointer]:
+    - img [ref=e123]
+  - alert [ref=e126]

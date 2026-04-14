@@ -21,6 +21,30 @@ export class PrismaService implements OnModuleInit, OnModuleDestroy {
     return this.db.auditLog;
   }
 
+  get organization() {
+    return this.db.organization;
+  }
+
+  get contact() {
+    return this.db.contact;
+  }
+
+  get serviceRequest() {
+    return this.db.serviceRequest;
+  }
+
+  get job() {
+    return this.db.job;
+  }
+
+  get jobStatusEvent() {
+    return this.db.jobStatusEvent;
+  }
+
+  get client() {
+    return this.db;
+  }
+
   async onModuleInit() {
     await this.db.$connect();
   }
